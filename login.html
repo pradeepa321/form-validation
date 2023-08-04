@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 80%;
+            margin: 0 auto;
+            <!-- background-color: cadetblue; -->
+        }
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col-1{
+            width: 50%;
+            display: flex;
+            padding: 12px;
+        }
+        .col-2{
+            width: 100%;
+            padding: 12px;
+        }
+        input[type="text"],[type="email"],[type="password"],[type="number"]{
+            width: 50%;
+            padding: 12px;
+        }
+        #btn{
+            background-color: orange;
+            padding: 12px;
+            border: none;
+            border-radius: 20px;
+        }
+       button{
+		background-color:orange;
+		border:none;
+		padding:10px;
+	   }
+    </style>
+</head>
+
+<body>
+
+    <form id="lform">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <input type="text" id="name" placeholder="Enter the Name">
+                </div>
+                
+                <div class="col-2">
+                    <input type="password" id="pwd" placeholder="Enter the Password">
+                </div>
+               
+                <div class="col-3">
+                    <button id="btn1">Submit</button>
+                </div>
+            </div>
+            
+        </div>
+    </form>
+    <script>
+        let lForm=document.querySelector("#lform");
+        lForm.addEventListener("submit",retriveData);
+		function retriveData(e){
+			e.preventDefault();
+			console.log("hello");
+			let lName=document.getElementById('name').value;
+            let lPwd=document.getElementById('pwd').value;
+			
+			let getName=localStorage.getItem('Name');
+            let getPwd=localStorage.getItem('Pwd');
+			
+			if(lName == getName && lPwd == getPwd){
+				alert("sucess");
+			}
+			else{
+				alert("incorrect");
+			}
+		}
+
+    </script>
+    
+</body>
+</html>
